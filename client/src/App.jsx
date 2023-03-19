@@ -6,9 +6,17 @@ import { CreatePost } from "./createPost";
 import { PostListPaginated } from "./PostListPaginated";
 import Post from "./Post";
 import { PostListInfinite } from "./PostListInfinite";
+import { getPost } from "./api/posts";
 function App() {
   const [currentPage, setCurrentPage] = useState(<PostsList1 />);
   const queryClient = useQueryClient();
+  function onHoverPostOneLink() {
+    queryClient.prefetchQuery({
+      queryKey: ["posts", 1],
+      queryFn: () => getPost(1),
+    });
+  }
+
   return (
     <div className="App">
       <button onClick={() => setCurrentPage(<PostsList1 />)}>
@@ -17,7 +25,10 @@ function App() {
       <button onClick={() => setCurrentPage(<PostsList2 />)}>
         Posts LIst 2
       </button>
-      <button onClick={() => setCurrentPage(<Post id={1} />)}>
+      <button
+        onMouseEnter={onHoverPostOneLink}
+        onClick={() => setCurrentPage(<Post id={1} />)}
+      >
         First Post
       </button>
       <button
