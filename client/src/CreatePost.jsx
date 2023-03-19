@@ -43,4 +43,4 @@ export function CreatePost({ setCurrentPage }) {
       </form>
     </div>
   )
-}
+} 
