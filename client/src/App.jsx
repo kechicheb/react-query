@@ -3,6 +3,7 @@ import { useState } from "react";
 import PostsList1 from "./PostsList1";
 import PostsList2 from "./PostsList2";
 import { CreatePost } from "./createPost";
+import { PostListPaginated } from "./PostListPaginated";
 import Post from "./Post";
 function App() {
   const [currentPage, setCurrentPage] = useState(<PostsList1 />);
@@ -24,6 +25,9 @@ function App() {
         }
       >
         New Post
+      </button>
+      <button onClick={() => setCurrentPage(<PostListPaginated />)}>
+        Post List Paginated
       </button>
       <br />
       {currentPage}
