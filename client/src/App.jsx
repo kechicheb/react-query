@@ -14,6 +14,8 @@ function App() {
     queryClient.prefetchQuery({
       queryKey: ["posts", 1],
       queryFn: () => getPost(1),
+      placeholderData: [{ id: 1, title: "Initial Data" }],
+      // initialData: [{ id: 1, title: "Initial Data" }],
     });
   }
 
