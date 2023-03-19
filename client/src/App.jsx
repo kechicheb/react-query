@@ -5,6 +5,7 @@ import PostsList2 from "./PostsList2";
 import { CreatePost } from "./createPost";
 import { PostListPaginated } from "./PostListPaginated";
 import Post from "./Post";
+import { PostListInfinite } from "./PostListInfinite";
 function App() {
   const [currentPage, setCurrentPage] = useState(<PostsList1 />);
   const queryClient = useQueryClient();
@@ -28,6 +29,9 @@ function App() {
       </button>
       <button onClick={() => setCurrentPage(<PostListPaginated />)}>
         Post List Paginated
+      </button>
+      <button onClick={() => setCurrentPage(<PostListInfinite />)}>
+        Post List Infinite
       </button>
       <br />
       {currentPage}
